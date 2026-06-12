@@ -1,0 +1,147 @@
+.recent-searches-panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.recent-searches-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recent-searches-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.recent-searches-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.btn-clear-all {
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.btn-clear-all:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.recent-searches-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border: 1px dashed var(--border-glass);
+  border-radius: 12px;
+}
+
+.recent-searches-empty-sub {
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.recent-searches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.recent-search-card {
+  padding: 0.9rem 1.1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.recent-search-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+.recent-search-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.recent-search-city {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.recent-search-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 550;
+}
+
+.recent-search-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.recent-search-temp-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.recent-search-temp-badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+
+.recent-search-cond-label {
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.btn-delete-history {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.btn-delete-history:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.08);
+  opacity: 1;
+}

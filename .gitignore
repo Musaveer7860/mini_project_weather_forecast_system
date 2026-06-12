@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Production build
+frontend/dist/
+
+# Environment configurations
+.env
+backend/.env
+
+# Local logs & caches
+logs/
+*.log
+.eslintcache
+
+# OS Files
+.DS_Store
+Thumbs.db

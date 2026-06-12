@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const axios = require('axios');
+const path = require('path');
 require('dotenv').config();
 
 const SearchHistory = require('./models/SearchHistory');
@@ -11,6 +12,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 let isMongoConnected = false;
 const inMemoryHistory = [];
@@ -804,24 +807,13 @@ app.delete('/api/history/:city', async (req, res) => {
   }
 });
 
-const path = require('path');
-
-// Serve static assets in production
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// Health check API endpoint
 app.get('/api/health', (req, res) => {
-  res.send({
-    status: 'active',
-    mongodbConnected: isMongoConnected
-  });
+  res.send({ status: 'active', mongodbConnected: isMongoConnected });
 });
 
-// Any other route should serve the React app's index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

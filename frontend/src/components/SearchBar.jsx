@@ -14,7 +14,8 @@ export default function SearchBar({ onSearch, onLocate, isLoading }) {
     }
     const delayDebounce = setTimeout(async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/weather/search/suggestions?q=${encodeURIComponent(city.trim())}`);
+        const API = import.meta.env.DEV ? 'http://localhost:5000' : '';
+        const res = await fetch(`${API}/api/weather/search/suggestions?q=${encodeURIComponent(city.trim())}`);
         if (res.ok) {
           const data = await res.json();
           setSuggestions(data);

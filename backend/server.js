@@ -804,20 +804,24 @@ app.delete('/api/history/:city', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
+const path = require('path');
+
+// Serve static assets in production
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Health check API endpoint
+app.get('/api/health', (req, res) => {
   res.send({
-    message: 'Weather Forecast API is running!',
-    endpoints: {
-      getWeather: '/api/weather/:city',
-      getWeatherByCoords: '/api/weather/coords?lat=:lat&lon=:lon',
-      getHistory: '/api/history',
-      postHistory: '/api/history',
-      clearHistory: '/api/history (DELETE)',
-      deleteCityHistory: '/api/history/:city (DELETE)'
-    },
+    status: 'active',
     mongodbConnected: isMongoConnected
   });
 });
+
+// Any other route should serve the React app's index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

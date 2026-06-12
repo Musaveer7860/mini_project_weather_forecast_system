@@ -1,0 +1,12 @@
+{
+  "name": "weather-forecast-system-root",
+  "version": "1.0.0",
+  "description": "AI-Powered Weather Forecast System using MERN Stack",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

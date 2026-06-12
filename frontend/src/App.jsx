@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import { CloudOff, AlertCircle } from 'lucide-react';
 import './App.css';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = import.meta.env.DEV ? 'http://localhost:5000' : '';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
